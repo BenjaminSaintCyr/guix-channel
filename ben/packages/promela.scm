@@ -1,4 +1,4 @@
-(define-module (promela)
+(define-module (ben packages promela)
   #:use-module (gnu packages)
   #:use-module (guix git-download)
   #:use-module (guix licenses)

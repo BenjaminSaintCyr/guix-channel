@@ -1,4 +1,4 @@
-(define-module (deadbeef)
+(define-module (ben packages deadbeef)
   #:use-module (gnu packages)
   #:use-module (guix git-download)
   #:use-module (guix licenses)
