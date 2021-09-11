@@ -32,12 +32,7 @@
                      (replace 'install
                               (lambda* (#:key inputs outputs #:allow-other-keys)
                                 (let ((out (assoc-ref outputs "out")))
-                                  (invoke
-                                   "mkdir" "-p" out "&&" ;; HACK
-                                   "make"
-                                   "INSTALL=cp"
-                                   (string-append "DESTDIR=" out)
-                                   "install" )))))))
+                                  (invoke "make" "INSTALL=install -D" (string-append "DESTDIR=" out) "install")))))))
    (native-inputs
     `(("gcc" ,gcc)
       ("bison" ,bison)))
@@ -45,4 +40,4 @@
    (synopsis "Spin is a widely used open-source software verification tool")
    (description
     "Spin is a widely used open-source software verification tool. The tool can be used for the formal verification of multi-threaded software applications. The tool was developed at Bell Labs in the Unix group of the Computing Sciences Research Center, starting in 1980, and has been available freely since 1991. Spin continues to evolve to keep pace with new developments in the field. In April 2002 the tool was awarded the ACM System Software Award")
-   (license expat)))
+   (license bsd-3)))
